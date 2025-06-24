@@ -21,7 +21,7 @@ ADMIN_ACTIVE = True
 BOT_VERSION = "5.0"
 
 # === CẤU HÌNH TELEGRAM ===
-BOT_TOKEN = "7999572641:AAG_OznDExLJ5WQvReO0fycoEaQV15jcXDs"
+BOT_TOKEN = "7963051960:AAFb-BXF7uUP4QgFGXM-7VJYHIq3cElOw9I"
 
 # === BIỂU TƯỢNG EMOJI ===
 EMOJI = {
@@ -239,7 +239,7 @@ logging.basicConfig(filename="bot_detailed_log.txt", level=logging.INFO,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
 def send_telegram(chat_id, message, parse_mode="Markdown", disable_web_page_preview=True):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    url = f"https://telecac.luongtiep615.workers.dev/bot{BOT_TOKEN}/sendMessage"
     data = {"chat_id": chat_id, "text": message, "parse_mode": parse_mode, "disable_web_page_preview": disable_web_page_preview}
     try:
         response = requests.post(url, data=data, timeout=10)
@@ -249,7 +249,7 @@ def send_telegram(chat_id, message, parse_mode="Markdown", disable_web_page_prev
         log_message(f"Lỗi gửi Telegram đến {chat_id}: {e}")
 
 def send_telegram_with_buttons(chat_id, message, buttons, parse_mode="Markdown"):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    url = f"https://telecac.luongtiep615.workers.dev/bot{BOT_TOKEN}/sendMessage"
     reply_markup = {"inline_keyboard": buttons}
     data = {
         "chat_id": chat_id,
@@ -599,7 +599,7 @@ def on_message(ws, message):
         log_message(error_msg)
 
 def background_task():
-    ws_url = "ws://localhost:8765"
+    ws_url = "điền ws đây"
     reconnect_delay = 5
     while True:
         try:
@@ -668,7 +668,7 @@ def handle_telegram_updates():
     global ADMIN_ACTIVE
     offset = 0
     while True:
-        url = f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates"
+        url = f"https://telecac.luongtiep615.workers.dev/bot{BOT_TOKEN}/getUpdates"
         params = {"offset": offset, "timeout": 30}
         try:
             response = requests.get(url, params=params, timeout=40)
