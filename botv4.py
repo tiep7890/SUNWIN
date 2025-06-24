@@ -599,7 +599,7 @@ def on_message(ws, message):
         log_message(error_msg)
 
 def background_task():
-    ws_url = "điền ws đây"
+    ws_url = "ws://localhost:8765"
     reconnect_delay = 5
     while True:
         try:
